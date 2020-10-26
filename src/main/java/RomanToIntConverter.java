@@ -2,10 +2,19 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class RomanToIntConverter {
-    private Map<Character, Integer> map = new HashMap<>();
+    private final static Map<Character, Integer> map = new HashMap<>();
+
+    static{
+        map.put('I', 1);
+        map.put('V', 5);
+        map.put('X', 10);
+        map.put('L', 50);
+        map.put('C', 100);
+        map.put('D', 500);
+        map.put('M', 1000);
+    }
 
     public int romanToInt(String s) {
-        createMap();
         int result = 0;
         for(int i=0; i<s.length(); i++){
             if(i != s.length() -1){
@@ -20,15 +29,5 @@ public class RomanToIntConverter {
             }
         }
         return result;
-    }
-
-    private void createMap(){
-        map.put('I', 1);
-        map.put('V', 5);
-        map.put('X', 10);
-        map.put('L', 50);
-        map.put('C', 100);
-        map.put('D', 500);
-        map.put('M', 1000);
     }
 }
